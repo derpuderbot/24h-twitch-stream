@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "texts": {
+    "brand": "24H STREAM",
+    "heroEyebrow": "GEMEINSAMES LIVE-EVENT",
+    "heroTitle": "24 STUNDEN.",
+    "heroAccent": "ZWEI STREAMER. EIN EVENT.",
+    "heroSubtitle": "Zwei Kanäle, ein gemeinsames Ziel. Sei dabei, wenn KevOne2107 und Sgt_Buddie 24 Stunden live gehen.",
+    "footerBrand": "24H STREAM // SYSTEM ONLINE",
+    "footerText": "Ein gemeinsames Event von KevOne2107 und Sgt_Buddie.",
+    "navStreams": "Streams", "navDashboard": "Dashboard", "navProgram": "Programm", "navHighlights": "Highlights",
+    "heroButtonPrimary": "LIVE-STREAMS ANSEHEN", "heroButtonSecondary": "EVENT-FAHRPLAN",
+    "streamerHeading": "STREAMER-STATUS", "playerHeading": "LIVE-ÜBERTRAGUNG", "dashboardHeading": "EVENT-DASHBOARD",
+    "programHeading": "PROGRAMM & CHALLENGES", "clipsHeading": "CLIPS & HIGHLIGHTS", "linksHeading": "COMMUNITY & LINKS",
+    "labels": {
+      "live": "LIVE", "offline": "OFFLINE", "unknown": "N/A",
+      "countdown": "COUNTDOWN BIS STREAMSTART", "running": "EVENT LÄUFT", "finished": "EVENT ABGESCHLOSSEN",
+      "eventProgress": "EVENT-FORTSCHRITT", "noSchedule": "Noch keine Programmpunkte hinterlegt.",
+      "noClips": "Noch keine Clips verfügbar.", "noLinks": "Keine weiteren verifizierten Links hinterlegt."
+    }
+  },
+  "design": {
+    "accent": "#46e1e7", "accent2": "#14a9c4", "background": "#050c14", "backgroundPanel": "#0a1b29",
+    "text": "#e7f7fb", "muted": "#82a6b2", "danger": "#ff6379", "headingFont": "Orbitron", "bodyFont": "Inter",
+    "headingFallback": "ui-sans-serif, system-ui, sans-serif", "bodyFallback": "ui-sans-serif, system-ui, sans-serif",
+    "baseFontSize": 14, "maxPageWidth": 1600, "scanlines": true, "animations": true, "glowStrength": 16, "borderStrength": 1
+  },
+  "layout": {
+    "maxWidth": 1600,
+    "order": ["hero", "streamers", "player", "dashboard", "program", "clips", "links"],
+    "sections": {
+      "hero": { "visible": true, "width": "full" }, "streamers": { "visible": true, "width": "full" },
+      "player": { "visible": true, "width": "full" }, "dashboard": { "visible": true, "width": "full" },
+      "program": { "visible": true, "width": "full" }, "clips": { "visible": true, "width": "full" },
+      "links": { "visible": true, "width": "full" }
+    },
+    "chatPosition": "below"
+  },
+  "player": { "defaultView": "dual", "chatEnabled": true, "muted": true, "chatHeight": 260 },
+  "event": { "startAt": "", "durationHours": 24, "milestonesHours": [1, 3, 6, 12, 18, 24] },
+  "data": { "refreshSeconds": 900, "liveFallback": true, "twitchTrackerRows": true, "followerMilestones": [100, 250, 500, 750, 1000, 1500, 2000], "historyDays": 90 },
+  "streamers": [
+    { "id": "a", "login": "kevone2107", "displayName": "KevOne2107", "profileImageUrl": "", "bio": "Musikbegeistert und Lust am GTA-RP und natürlich auch anderen Games.", "descriptionSource": "TwitchMetrics – Kanalbeschreibung; zuletzt geprüft am 04.11.2026.", "links": [
+      { "label": "Twitch", "url": "https://www.twitch.tv/kevone2107", "type": "twitch" },
+      { "label": "KLAERWERK-Profil", "url": "https://forum.klaerwerk-community.de/streams/channels/kevone2107.415/", "type": "forum" }
+    ] },
+    { "id": "b", "login": "sgt_buddie", "displayName": "Sgt_Buddie", "profileImageUrl": "", "bio": "Kanalbeschreibung: N/A – keine verifizierte öffentliche Beschreibung gefunden.", "descriptionSource": "N/A", "links": [
+      { "label": "Twitch", "url": "https://www.twitch.tv/sgt_buddie", "type": "twitch" },
+      { "label": "KLAERWERK-Verzeichnis", "url": "https://forum.klaerwerk-community.de/streams/page-2?view=table", "type": "forum" }
+    ] }
+  ],
+  "lists": {
+    "schedule": [], "games": [], "challenges": [], "clips": [],
+    "social": [{ "label": "KLAERWERK Community", "description": "Stream-Verzeichnis und Community-Forum", "url": "https://forum.klaerwerk-community.de/streams/", "type": "community" }],
+    "links": []
+  },
+  "sources": [
+    { "label": "Twitch – KevOne2107", "url": "https://www.twitch.tv/kevone2107", "note": "Offizieller Kanal" },
+    { "label": "Twitch – Sgt_Buddie", "url": "https://www.twitch.tv/sgt_buddie", "note": "Offizieller Kanal" },
+    { "label": "TwitchMetrics – KevOne2107", "url": "https://www.twitchmetrics.net/c/731403981-kevone2107", "note": "Statistik-Snapshot und Kanalbeschreibung; geprüft am 04.11.2026" },
+    { "label": "KLAERWERK – KevOne2107", "url": "https://forum.klaerwerk-community.de/streams/channels/kevone2107.415/", "note": "Stream-Verzeichnisprofil" },
+    { "label": "KLAERWERK – Stream-Verzeichnis", "url": "https://forum.klaerwerk-community.de/streams/page-2?view=table", "note": "Sgt_Buddie im Verzeichnis-Suchergebnis gelistet; Detailprofil nicht eindeutig ermittelt" },
+    { "label": "TwitchTracker API-Hinweis", "url": "https://twitchtracker.com/api", "note": "Undokumentierter/inoffizieller Kanal-Summary-Endpunkt; Abrufe können blockiert werden" }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "updatedAt": null,
+  "snapshotRetrievedOn": "2026-11-04",
+  "source": "Keine GitHub-Secrets konfiguriert – Browser-Fallback (DecAPI.me)",
+  "channels": {
+    "kevone2107": {
+      "login": "kevone2107",
+      "displayName": "KevOne2107",
+      "isLive": null,
+      "title": "N/A",
+      "game": "Grand Theft Auto V",
+      "viewers": null,
+      "followers": 727,
+      "avatar": "",
+      "bio": "Musikbegeistert und Lust am GTA-RP und natürlich auch anderen Games.",
+      "averageViewers30d": 20,
+      "peakViewers30d": 52,
+      "viewerHours30d": 2879,
+      "hoursLive30d": 141,
+      "followerChange30d": 328,
+      "rank30d": "#238 (deutsche GTA-V-Kanäle)",
+      "firstSeen": "2025-10-01",
+      "language": "Deutsch",
+      "snapshotPeriod": "2026-10-05 bis 2026-11-04",
+      "snapshotSource": "https://www.twitchmetrics.net/c/731403981-kevone2107"
+    },
+    "sgt_buddie": {
+      "login": "sgt_buddie",
+      "displayName": "Sgt_Buddie",
+      "isLive": null,
+      "title": "N/A",
+      "game": "N/A",
+      "viewers": null,
+      "followers": null,
+      "avatar": "",
+      "bio": "N/A",
+      "averageViewers30d": null,
+      "peakViewers30d": null,
+      "viewerHours30d": null,
+      "hoursLive30d": null,
+      "followerChange30d": null,
+      "rank30d": "N/A",
+      "snapshotSource": "N/A"
+    }
+  },
+  "tracker": {
+    "kevone2107": {
+      "status": "nicht initialisiert",
+      "data": null
+    },
+    "sgt_buddie": {
+      "status": "nicht initialisiert",
+      "data": null
+    }
+  }
+}

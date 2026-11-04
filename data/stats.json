@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T16:51:05.301Z",
+  "updatedAt": "2026-11-04T17:01:26.935Z",
   "snapshotRetrievedOn": "2026-11-04",
   "source": "Twitch Helix API (GitHub Actions)",
   "channels": {
@@ -24,7 +24,7 @@
       "followerChange30d": 328,
       "rank30d": "#238 (deutsche GTA-V-Kanäle)",
       "firstSeen": "2025-10-01",
-      "updatedAt": "2026-11-04T16:51:05.301Z",
+      "updatedAt": "2026-11-04T17:01:26.935Z",
       "source": "Twitch Helix API"
     },
     "sgt_buddie": {
@@ -33,8 +33,8 @@
       "userId": "150130295",
       "isLive": true,
       "title": "🐺 Immer wieder Mittwochs, Party am Flughafen [kw-com.de][GER]",
-      "game": "Golf With Your Friends",
-      "viewers": 15,
+      "game": "Liar's Bar",
+      "viewers": 11,
       "followers": null,
       "followersSource": "Kein kanalbezogener User-Token hinterlegt",
       "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/ade3d88d-007d-4fdd-8f8b-187fbbb9b6d1-profile_image-300x300.png",
@@ -48,7 +48,7 @@
       "followerChange30d": null,
       "rank30d": "N/A",
       "firstSeen": null,
-      "updatedAt": "2026-11-04T16:51:05.301Z",
+      "updatedAt": "2026-11-04T17:01:26.935Z",
       "source": "Twitch Helix API"
     }
   },
@@ -56,13 +56,13 @@
     "kevone2107": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-04T16:51:05.301Z",
+      "checkedAt": "2026-11-04T17:01:26.935Z",
       "source": "https://twitchtracker.com/api/channels/summary/kevone2107"
     },
     "sgt_buddie": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-04T16:51:05.301Z",
+      "checkedAt": "2026-11-04T17:01:26.935Z",
       "source": "https://twitchtracker.com/api/channels/summary/sgt_buddie"
     }
   }

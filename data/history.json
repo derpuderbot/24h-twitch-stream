@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T17:49:43.139Z",
+  "updatedAt": "2026-11-04T18:04:58.778Z",
   "samples": [
     {
       "bucket": 1993102,
@@ -253,6 +253,22 @@
         "sgt_buddie": {
           "followers": null,
           "viewers": 8,
+          "isLive": true
+        }
+      }
+    },
+    {
+      "bucket": 1993128,
+      "timestamp": "2026-11-04T18:04:58.778Z",
+      "channels": {
+        "kevone2107": {
+          "followers": 727,
+          "viewers": 9,
+          "isLive": true
+        },
+        "sgt_buddie": {
+          "followers": null,
+          "viewers": 9,
           "isLive": true
         }
       }

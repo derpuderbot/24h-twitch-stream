@@ -40,7 +40,7 @@ function init(html,css){
  originalHtml=html; originalCss=css;
  const components=doc.body.innerHTML.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');
  editor=grapesjs.init({container:'#gjs',height:'100%',fromElement:false,storageManager:false,noticeOnUnload:true,
-  selectorManager:{componentFirst:true},canvas:{styles:['https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap','https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap','https://derpuderbot.github.io/24h-twitch-stream/css/site.css'],scripts:[]},
+  selectorManager:{componentFirst:true},canvas:{styles:['https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap','https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap','https://derpuderbot.github.io/24h-twitch-stream/css/site.css'],scripts:['https://derpuderbot.github.io/24h-twitch-stream/js/defaults.js','https://derpuderbot.github.io/24h-twitch-stream/js/app.js']},
   blockManager:{appendTo:'.gjs-blocks',blocks:[
    {id:'section',label:'Abschnitt',category:'Struktur',content:'<section class="section"><div class="section-heading"><h2>NEUER ABSCHNITT</h2></div><p>Hier steht Ihr Text.</p></section>'},
    {id:'heading',label:'Überschrift',category:'Inhalt',content:'<h2>Neue Überschrift</h2>'},

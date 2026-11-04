@@ -20,7 +20,7 @@
 <div class="layout">
 <aside class="side"><h3>WERKZEUGE</h3><p>Klicken Sie ein Element in der Vorschau an. Danach können Sie Inhalt und Darstellung rechts bearbeiten.</p>
 <div class="group"><h4>ELEMENTE EINFÜGEN</h4><button class="tool" data-add="heading">＋ Überschrift</button><button class="tool" data-add="text">＋ Textabsatz</button><button class="tool" data-add="button">＋ Button</button><button class="tool" data-add="card">＋ Info-Karte</button><button class="tool" data-add="image">＋ Bild</button><button class="tool" data-add="section">＋ Abschnitt</button></div>
-<div class="group"><h4>BEARBEITEN</h4><button class="tool" id="editText">Text direkt bearbeiten</button><button class="tool" id="delete">Ausgewähltes löschen</button><button class="tool" id="clear">Auswahl aufheben</button></div>
+<div class="group"><h4>BEARBEITEN</h4><button class="tool" id="editText">Text direkt bearbeiten</button><button class="tool" id="moveMode">Verschieben: AUS</button><button class="tool" id="delete">Ausgewähltes löschen</button><button class="tool" id="clear">Auswahl aufheben</button></div>
 </aside>
 <main class="stage"><div class="stagebar"><button class="device active" data-device="desktop">Desktop</button><button class="device" data-device="tablet">Tablet</button><button class="device" data-device="mobile">Mobil</button></div><div class="framewrap"><iframe id="preview" class="preview" title="Website-Vorschau" src="index.html?designerPreview=1"></iframe></div></main>
 <aside class="side right"><h3>EIGENSCHAFTEN</h3><p id="selectionInfo">Noch kein Element ausgewählt.</p>
@@ -34,7 +34,7 @@
 </div>
 <script>
 (()=>{'use strict';
-const $=id=>document.getElementById(id),frame=$('preview');let selected=null,ready=false;
+const $=id=>document.getElementById(id),frame=$('preview');let selected=null,ready=false,moveMode=false,dragged=null;
 const status=(s,err=false)=>{$('status').textContent=s;$('status').classList.toggle('error',err)};
 const tokenSaved=localStorage.getItem('24h_twitch_github_token');if(tokenSaved){$('token').value=tokenSaved;$('remember').checked=true}
 $('remember').onchange=()=>{if($('remember').checked&&$('token').value.trim())localStorage.setItem('24h_twitch_github_token',$('token').value.trim());else localStorage.removeItem('24h_twitch_github_token')};
@@ -43,12 +43,19 @@ function doc(){return frame.contentDocument}
 function clearSelection(){if(selected){selected.classList.remove('selected');selected.removeAttribute('data-vd-selected')}selected=null;$('selectionInfo').textContent='Noch kein Element ausgewählt.';['textValue','hrefValue','bgValue','colorValue','classValue'].forEach(id=>$(id).disabled=true)}
 function select(el){if(!el||['HTML','BODY','SCRIPT','STYLE','HEAD'].includes(el.tagName))return; if(selected)selected.classList.remove('selected');selected=el;selected.classList.add('selected');selected.setAttribute('data-vd-selected','1');$('selectionInfo').textContent=el.tagName.toLowerCase()+(el.id?'#'+el.id:'');['textValue','hrefValue','bgValue','colorValue','classValue'].forEach(id=>$(id).disabled=false);$('textValue').value=el.innerText||'';$('hrefValue').value=el.getAttribute('href')||'';$('bgValue').value=rgbHex(getComputedStyle(el).backgroundColor)||'#06111b';$('colorValue').value=rgbHex(getComputedStyle(el).color)||'#e7f7fb';$('classValue').value=el.className&&typeof el.className==='string'?el.className:''}
 function rgbHex(rgb){const m=rgb.match(/\d+/g);if(!m||m.length<3)return null;return '#'+m.slice(0,3).map(x=>(+x).toString(16).padStart(2,'0')).join('')}
-function bind(){const d=doc();if(!d)return;d.addEventListener('click',e=>{if(!ready)return;e.preventDefault();e.stopPropagation();select(e.target.closest('a,button,h1,h2,h3,h4,p,section,article,div,img')||e.target)},true);ready=true;status('Website geladen – Element auswählen')}
+function bind(){const d=doc();if(!d)return;
+d.addEventListener('click',e=>{if(!ready||dragged)return;e.preventDefault();e.stopPropagation();select(e.target.closest('a,button,h1,h2,h3,h4,p,section,article,div,img')||e.target)},true);
+d.addEventListener('dragstart',e=>{if(!moveMode)return;const el=e.target.closest('a,button,h1,h2,h3,h4,p,section,article,div,img');if(!el)return;dragged=el;e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain','move');select(el)},true);
+d.addEventListener('dragover',e=>{if(moveMode&&dragged){e.preventDefault();e.dataTransfer.dropEffect='move'}},true);
+d.addEventListener('drop',e=>{if(!moveMode||!dragged)return;e.preventDefault();const target=e.target.closest('a,button,h1,h2,h3,h4,p,section,article,div,img');if(target&&target!==dragged&&!dragged.contains(target)&&target.parentElement===dragged.parentElement){const r=target.getBoundingClientRect();target.parentElement.insertBefore(dragged,e.clientY>r.top+r.height/2?target.nextSibling:target);status('Element verschoben – noch nicht gespeichert')}dragged=null},true);
+d.addEventListener('dragend',()=>{dragged=null},true);
+d.querySelectorAll('a,button,h1,h2,h3,h4,p,section,article,div,img').forEach(el=>{el.draggable=true});
+ready=true;status('Website geladen – Element auswählen')}
 frame.addEventListener('load',()=>{try{bind()}catch(e){status('Vorschau konnte nicht verbunden werden',true)}});$('reload').onclick=()=>{clearSelection();ready=false;frame.src='index.html?designerPreview='+Date.now()};
 $('textValue').oninput=()=>{if(selected)selected.innerText=$('textValue').value};$('hrefValue').oninput=()=>{if(selected&&selected.tagName==='A')selected.setAttribute('href',$('hrefValue').value)};$('bgValue').oninput=()=>{if(selected)selected.style.backgroundColor=$('bgValue').value};$('colorValue').oninput=()=>{if(selected)selected.style.color=$('colorValue').value};$('classValue').onchange=()=>{if(selected)selected.className=$('classValue').value};
 $('editText').onclick=()=>{if(!selected){status('Bitte zuerst ein Element auswählen',true);return}selected.contentEditable='true';selected.focus();status('Text direkt bearbeiten – außerhalb klicken zum Beenden')};
 $('delete').onclick=()=>{if(selected){const el=selected;clearSelection();el.remove();status('Element entfernt – noch nicht gespeichert')}};
-$('clear').onclick=clearSelection;
+$('clear').onclick=clearSelection;$('moveMode').onclick=()=>{moveMode=!moveMode;$('moveMode').textContent='Verschieben: '+(moveMode?'AN':'AUS');status(moveMode?'Verschieben aktiv: Element ziehen':'Verschieben deaktiviert')};
 document.querySelectorAll('[data-device]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-device]').forEach(x=>x.classList.toggle('active',x===b));frame.className='preview '+(b.dataset.device==='desktop'?'':b.dataset.device)});
 const snippets={heading:'<h2>Neue Überschrift</h2>',text:'<p>Hier Ihren Text eingeben.</p>',button:'<a class="button button-primary" href="#">Button-Text</a>',card:'<article class="panel-card"><h3>Neue Info-Karte</h3><p>Beschreibung hier ergänzen.</p></article>',image:'<img src="https://placehold.co/800x450/06111b/46e1e7?text=Bild+einfuegen" alt="Neues Bild" style="max-width:100%">',section:'<section class="section"><div class="section-heading"><h2>NEUER ABSCHNITT</h2></div><p>Hier steht Ihr Text.</p></section>'};
 document.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const d=doc();if(!ready||!d){status('Vorschau wird noch geladen',true);return}const node=d.createElement('div');node.innerHTML=snippets[b.dataset.add];const el=node.firstElementChild;const parent=selected&&selected!==d.body?selected.parentElement:(d.querySelector('main')||d.querySelector('.container')||d.body);parent.appendChild(el);select(el);status('Element eingefügt – noch nicht gespeichert')});

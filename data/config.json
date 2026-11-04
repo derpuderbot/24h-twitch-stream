@@ -99,7 +99,7 @@
     "defaultView": "dual",
     "chatEnabled": true,
     "muted": true,
-    "chatHeight": 260
+    "chatHeight": 520
   },
   "event": {
     "startAt": "2026-11-21T17:00:00.000Z",

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T16:49:58.172Z",
+  "updatedAt": "2026-11-04T16:51:05.301Z",
   "snapshotRetrievedOn": "2026-11-04",
   "source": "Twitch Helix API (GitHub Actions)",
   "channels": {
@@ -10,7 +10,7 @@
       "isLive": true,
       "title": "Golf V Diesel? Nee mit Freunden xD (Alisthor Staver) [kw-com.de]  !dc 🔵🟡",
       "game": "Golf With Your Friends",
-      "viewers": 16,
+      "viewers": 13,
       "followers": 727,
       "followersSource": "Kein kanalbezogener User-Token hinterlegt",
       "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/b927665e-ec27-4a54-85b1-c4d034972056-profile_image-300x300.png",
@@ -24,7 +24,7 @@
       "followerChange30d": 328,
       "rank30d": "#238 (deutsche GTA-V-Kanäle)",
       "firstSeen": "2025-10-01",
-      "updatedAt": "2026-11-04T16:49:58.172Z",
+      "updatedAt": "2026-11-04T16:51:05.301Z",
       "source": "Twitch Helix API"
     },
     "sgt_buddie": {
@@ -34,7 +34,7 @@
       "isLive": true,
       "title": "🐺 Immer wieder Mittwochs, Party am Flughafen [kw-com.de][GER]",
       "game": "Golf With Your Friends",
-      "viewers": 14,
+      "viewers": 15,
       "followers": null,
       "followersSource": "Kein kanalbezogener User-Token hinterlegt",
       "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/ade3d88d-007d-4fdd-8f8b-187fbbb9b6d1-profile_image-300x300.png",
@@ -48,7 +48,7 @@
       "followerChange30d": null,
       "rank30d": "N/A",
       "firstSeen": null,
-      "updatedAt": "2026-11-04T16:49:58.172Z",
+      "updatedAt": "2026-11-04T16:51:05.301Z",
       "source": "Twitch Helix API"
     }
   },
@@ -56,13 +56,13 @@
     "kevone2107": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-04T16:49:58.172Z",
+      "checkedAt": "2026-11-04T16:51:05.301Z",
       "source": "https://twitchtracker.com/api/channels/summary/kevone2107"
     },
     "sgt_buddie": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-04T16:49:58.172Z",
+      "checkedAt": "2026-11-04T16:51:05.301Z",
       "source": "https://twitchtracker.com/api/channels/summary/sgt_buddie"
     }
   }

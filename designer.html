@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06111b"><link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Visueller Website-Designer | 24H Stream</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="https://unpkg.com/grapesjs@0.22.13/dist/css/grapes.min.css">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#050c14;color:#e7f7fb;font-family:Inter,sans-serif}.designer-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;background:#071722;border-bottom:1px solid #214655;flex-wrap:wrap}.brand{font:700 13px Orbitron,sans-serif;letter-spacing:.08em;color:#d9fbff}.brand em{font-style:normal;color:#46e1e7}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #286073;background:#0b2634;color:#c9f8fb;padding:9px 13px;font:600 10px Orbitron,sans-serif;cursor:pointer}.btn.primary{background:#087d91;border-color:#46e1e7;color:white}.btn:disabled{opacity:.5;cursor:wait}.settings{display:flex;gap:8px;align-items:center;padding:9px 18px;background:#091d2a;border-bottom:1px solid #183b4a;flex-wrap:wrap}.settings input{background:#06131e;border:1px solid #214655;color:#e7f7fb;padding:8px;min-width:180px}.settings label{font-size:10px;color:#91b9c3}.settings .token{min-width:250px}.notice{font-size:10px;color:#83aab4;padding:8px 18px;background:#0b202c}.notice strong{color:#46e1e7}#gjs{height:calc(100vh - 154px);border:0}.gjs-one-bg{background:#081a27}.gjs-two-color{color:#c4edf0}.gjs-three-bg{background:#0d3443;color:#d8fbff}.gjs-four-color,.gjs-four-color-h:hover{color:#46e1e7}.gjs-pn-panel{padding:5px}.status{font-size:10px;color:#8eb4bf;min-width:140px}.status.error{color:#ff8796}@media(max-width:650px){#gjs{height:calc(100vh - 230px)}.settings input{min-width:130px;flex:1}.settings .token{min-width:100%}}
+</style>
+</head>
+<body>
+<header class="designer-head"><a class="brand" href="index.html">24H STREAM <em>// VISUAL DESIGNER</em></a><div class="actions"><span id="status" class="status">Bereit</span><button class="btn" id="load">WEBSITE LADEN</button><button class="btn primary" id="save">IN GITHUB SPEICHERN ↗</button><a class="btn" href="config.html">ZUR KONFIGURATION</a><a class="btn" href="index.html" target="_blank">VORSCHAU ↗</a></div></header>
+<div class="settings">
+<label>GitHub Owner <input id="owner" value="derpuderbot"></label>
+<label>Repository <input id="repo" value="24h-twitch-stream"></label>
+<label>Branch <input id="branch" value="main"></label>
+<label>Token <input id="token" class="token" type="password" placeholder="github_pat_… (Contents: Read and write)"></label>
+<label><input id="remember" type="checkbox"> Token in diesem Browser merken</label>
+</div>
+<div class="notice"><strong>Hinweis:</strong> Texte, Bilder, Buttons und Bereiche können per Drag-and-drop bearbeitet werden. Die dynamischen Twitch-Funktionen bleiben in ihren vorhandenen Skripten. Änderungen werden erst nach „In GitHub speichern“ veröffentlicht.</div>
+<div id="gjs"></div>
+<script src="https://unpkg.com/grapesjs@0.22.13/dist/grapes.min.js"></script>
+<script>
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const status = (message, error=false) => { $('status').textContent=message; $('status').classList.toggle('error',error); };
+const base = () => 'https://api.github.com/repos/'+encodeURIComponent($('owner').value.trim())+'/'+encodeURIComponent($('repo').value.trim())+'/contents/';
+let editor, originalHtml='', originalCss='', loaded=false;
+const savedToken = localStorage.getItem('24h_twitch_github_token') || '';
+if(savedToken){$('token').value=savedToken;$('remember').checked=true;}
+$('remember').addEventListener('change',()=>{if($('remember').checked&&$('token').value.trim())localStorage.setItem('24h_twitch_github_token',$('token').value.trim());else localStorage.removeItem('24h_twitch_github_token');});
+$('token').addEventListener('change',()=>{if($('remember').checked&&$('token').value.trim())localStorage.setItem('24h_twitch_github_token',$('token').value.trim());});
+function init(html,css){
+ const doc=new DOMParser().parseFromString(html,'text/html');
+ originalHtml=html; originalCss=css;
+ const components=doc.body.innerHTML.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,'');
+ editor=grapesjs.init({container:'#gjs',height:'100%',fromElement:false,storageManager:false,noticeOnUnload:true,
+  selectorManager:{componentFirst:true},canvas:{styles:['css/site.css'],scripts:[]},
+  blockManager:{appendTo:'.gjs-blocks',blocks:[
+   {id:'section',label:'Abschnitt',category:'Struktur',content:'<section class="section"><div class="section-heading"><h2>NEUER ABSCHNITT</h2></div><p>Hier steht Ihr Text.</p></section>'},
+   {id:'heading',label:'Überschrift',category:'Inhalt',content:'<h2>Neue Überschrift</h2>'},
+   {id:'text',label:'Text',category:'Inhalt',content:'<p>Hier Ihren Text eingeben.</p>'},
+   {id:'image',label:'Bild',category:'Inhalt',content:{type:'image'}},
+   {id:'button',label:'Button / Link',category:'Inhalt',content:'<a class="button button-primary" href="#">Button-Text</a>'},
+   {id:'card',label:'Info-Karte',category:'Inhalt',content:'<article class="panel-card"><h3>KARTENTITEL</h3><p>Beschreibung hier ergänzen.</p></article>'},
+   {id:'columns',label:'Zwei Spalten',category:'Struktur',content:'<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px"><div class="panel-card"><h3>Spalte 1</h3><p>Inhalt</p></div><div class="panel-card"><h3>Spalte 2</h3><p>Inhalt</p></div></div>'}
+  ]},
+  panels:{defaults:[{id:'options',el:'#gjs',buttons:[]},{id:'views',buttons:[{id:'desktop',command:'core:preview',active:false,label:'Vorschau'},{id:'undo',command:'core:undo',label:'↶'},{id:'redo',command:'core:redo',label:'↷'}]}]},
+  deviceManager:{devices:[{name:'Desktop',width:''},{name:'Tablet',width:'768px',widthMedia:'992px'},{name:'Mobil',width:'390px',widthMedia:'480px'}]},
+  plugins:[],components,style:css
+ });
+ editor.setComponents(components);
+ editor.setStyle(css);
+ editor.Panels.addPanel({id:'devices',buttons:[
+  {id:'desktop',label:'Desktop',command:'set-device-desktop',active:true},
+  {id:'tablet',label:'Tablet',command:'set-device-tablet'},
+  {id:'mobile',label:'Mobil',command:'set-device-mobile'}
+ ]});
+ editor.Commands.add('set-device-desktop',{run:e=>e.setDevice('Desktop')});
+ editor.Commands.add('set-device-tablet',{run:e=>e.setDevice('Tablet')});
+ editor.Commands.add('set-device-mobile',{run:e=>e.setDevice('Mobil')});
+ loaded=true;status('Website geladen – Änderungen möglich');
+}
+async function loadSite(){
+ status('Lade Website …');
+ try{
+  const [h,c]=await Promise.all([fetch('index.html?v='+Date.now(),{cache:'no-store'}),fetch('css/site.css?v='+Date.now(),{cache:'no-store'})]);
+  if(!h.ok||!c.ok)throw new Error('Website-Dateien konnten nicht geladen werden.');
+  init(await h.text(),await c.text());
+ }catch(e){status(e.message,true);}
+}
+function b64(text){const bytes=new TextEncoder().encode(text);let binary='';bytes.forEach(b=>binary+=String.fromCharCode(b));return btoa(binary);}
+async function githubFile(path,content,message){
+ const token=$('token').value.trim();if(!token)throw new Error('Bitte einen GitHub-Token mit Contents: Read and write eintragen.');
+ const headers={'Accept':'application/vnd.github+json','Authorization':'Bearer '+token,'X-GitHub-Api-Version':'2022-11-28','Content-Type':'application/json'};
+ const url=base()+path;let sha;
+ const get=await fetch(url+'?ref='+encodeURIComponent($('branch').value.trim()),{headers});
+ if(get.ok)sha=(await get.json()).sha;else if(get.status!==404){const e=await get.json().catch(()=>({}));throw new Error(e.message||'GitHub-Lesezugriff fehlgeschlagen.');}
+ const payload={message,content:b64(content),branch:$('branch').value.trim()};if(sha)payload.sha=sha;
+ const put=await fetch(url,{method:'PUT',headers,body:JSON.stringify(payload)});const result=await put.json().catch(()=>({}));
+ if(!put.ok)throw new Error(result.message||'GitHub-Schreibzugriff fehlgeschlagen.');
+}
+async function saveSite(){
+ if(!loaded||!editor)return;
+ const token=$('token').value.trim();if(!token){status('GitHub-Token fehlt',true);return;}
+ const button=$('save');button.disabled=true;status('Prüfe und speichere …');
+ try{
+  const doc=new DOMParser().parseFromString(originalHtml,'text/html');
+  const scripts=[...doc.body.querySelectorAll('script')].map(s=>s.cloneNode(true));
+  doc.body.innerHTML=editor.getHtml();
+  scripts.forEach(s=>doc.body.appendChild(s));
+  const prior=doc.head.querySelector('#visual-designer-styles');if(prior)prior.remove();
+  const style=doc.createElement('style');style.id='visual-designer-styles';style.textContent=editor.getCss();doc.head.appendChild(style);
+  await githubFile('index.html','<!doctype html>\n'+doc.documentElement.outerHTML+'\n','Visuelles Website-Layout aktualisiert');
+  status('Gespeichert – GitHub Pages wird aktualisiert');
+  originalHtml='<!doctype html>\n'+doc.documentElement.outerHTML+'\n';
+ }catch(e){status(e.message,true);}finally{button.disabled=false;}
+}
+$('load').addEventListener('click',()=>{if(loaded){if(!confirm('Editor neu laden? Ungespeicherte Änderungen gehen verloren.'))return;editor.destroy();loaded=false;}loadSite();});
+$('save').addEventListener('click',saveSite);
+loadSite();
+})();
+</script>
+</body></html>

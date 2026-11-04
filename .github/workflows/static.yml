@@ -1,0 +1,67 @@
+name: Website aktualisieren und auf GitHub Pages veröffentlichen
+
+on:
+  push:
+    branches: [main, master]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Twitch-Daten abrufen und JSON-Dateien aktualisieren
+        env:
+          TWITCH_CLIENT_ID: ${{ secrets.TWITCH_CLIENT_ID }}
+          TWITCH_CLIENT_SECRET: ${{ secrets.TWITCH_CLIENT_SECRET }}
+          TWITCH_USER_TOKEN_KEVONE2107: ${{ secrets.TWITCH_USER_TOKEN_KEVONE2107 }}
+          TWITCH_USER_TOKEN_SGT_BUDDIE: ${{ secrets.TWITCH_USER_TOKEN_SGT_BUDDIE }}
+        run: node .github/scripts/update-data.mjs
+
+      - name: Statistikdaten committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/stats.json data/history.json data/clips.json
+          if git diff --cached --quiet; then
+            echo "Keine Datenänderungen zum Committen."
+          else
+            git commit -m "Automatische Twitch-Daten aktualisiert [skip ci]"
+            git push
+          fi
+
+      - name: GitHub Pages konfigurieren
+        uses: actions/configure-pages@v5
+
+      - name: Website-Artefakt bereitstellen
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: GitHub Pages veröffentlichen
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T17:05:08.345Z",
+  "updatedAt": "2026-11-05T00:13:47.125Z",
   "clips": [
     {
       "id": "IntelligentSparklyRingItsBoshyTime-cKxKcQX5QqWycrTJ",
@@ -60,6 +60,21 @@
       "duration": 30,
       "language": "de",
       "streamer": "Sgt_Buddie"
+    },
+    {
+      "id": "HorribleEnchantingWalrusTheTarFu-HIYCxGOtHNz3Qjqk",
+      "url": "https://www.twitch.tv/kevone2107/clip/HorribleEnchantingWalrusTheTarFu-HIYCxGOtHNz3Qjqk",
+      "embed_url": "https://clips.twitch.tv/embed?clip=HorribleEnchantingWalrusTheTarFu-HIYCxGOtHNz3Qjqk",
+      "title": "Joris' Taxi Freestyle Part I",
+      "creator_name": "kevone2107",
+      "broadcaster_name": "kevone2107",
+      "game_name": "",
+      "view_count": 22,
+      "created_at": "2026-10-28T20:13:00Z",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/45f64868-3445-444d-b5d7-b0ca0316c662/landscape/thumb/thumb-0000000000-480x272.jpg",
+      "duration": 60,
+      "language": "de",
+      "streamer": "KevOne2107"
     },
     {
       "id": "AverageVenomousRaccoonRedCoat-h_FjFjGh6Pkt3Wkc",

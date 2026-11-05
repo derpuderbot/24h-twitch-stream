@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T06:58:59.711Z",
+  "updatedAt": "2026-11-05T15:22:18.696Z",
   "snapshotRetrievedOn": "2026-11-04",
   "source": "Twitch Helix API (GitHub Actions)",
   "channels": {
@@ -24,23 +24,23 @@
       "followerChange30d": 328,
       "rank30d": "#238 (deutsche GTA-V-Kanäle)",
       "firstSeen": "2025-10-01",
-      "updatedAt": "2026-11-05T06:58:59.711Z",
+      "updatedAt": "2026-11-05T15:22:18.696Z",
       "source": "Twitch Helix API"
     },
     "sgt_buddie": {
       "login": "sgt_buddie",
       "displayName": "Sgt_Buddie",
       "userId": "150130295",
-      "isLive": false,
-      "title": "N/A",
-      "game": "Liar's Bar",
-      "viewers": 0,
+      "isLive": true,
+      "title": "🐺 Wenn die AimPrinzessin dreimal klingelt [kw-com.de][GER]",
+      "game": "Arena Breakout: Infinite",
+      "viewers": 8,
       "followers": null,
       "followersSource": "Kein kanalbezogener User-Token hinterlegt",
       "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/ade3d88d-007d-4fdd-8f8b-187fbbb9b6d1-profile_image-300x300.png",
       "bio": "Sei es GTA-RP, Shooter oder Story-Games. Hauptsache wir haben Spaß. ",
-      "language": "affiliate",
-      "streamStartedAt": null,
+      "language": "de",
+      "streamStartedAt": "2026-11-05T11:53:15Z",
       "averageViewers30d": null,
       "peakViewers30d": null,
       "viewerHours30d": null,
@@ -48,7 +48,7 @@
       "followerChange30d": null,
       "rank30d": "N/A",
       "firstSeen": null,
-      "updatedAt": "2026-11-05T06:58:59.711Z",
+      "updatedAt": "2026-11-05T15:22:18.696Z",
       "source": "Twitch Helix API"
     }
   },
@@ -56,13 +56,13 @@
     "kevone2107": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-05T06:58:59.711Z",
+      "checkedAt": "2026-11-05T15:22:18.696Z",
       "source": "https://twitchtracker.com/api/channels/summary/kevone2107"
     },
     "sgt_buddie": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-05T06:58:59.711Z",
+      "checkedAt": "2026-11-05T15:22:18.696Z",
       "source": "https://twitchtracker.com/api/channels/summary/sgt_buddie"
     }
   }

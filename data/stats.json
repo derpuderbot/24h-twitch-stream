@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T01:49:16.993Z",
+  "updatedAt": "2026-11-06T09:02:15.059Z",
   "snapshotRetrievedOn": "2026-11-04",
   "source": "Twitch Helix API (GitHub Actions)",
   "channels": {
@@ -24,7 +24,7 @@
       "followerChange30d": 328,
       "rank30d": "#238 (deutsche GTA-V-Kanäle)",
       "firstSeen": "2025-10-01",
-      "updatedAt": "2026-11-06T01:49:16.993Z",
+      "updatedAt": "2026-11-06T09:02:15.059Z",
       "source": "Twitch Helix API"
     },
     "sgt_buddie": {
@@ -48,7 +48,7 @@
       "followerChange30d": null,
       "rank30d": "N/A",
       "firstSeen": null,
-      "updatedAt": "2026-11-06T01:49:16.993Z",
+      "updatedAt": "2026-11-06T09:02:15.059Z",
       "source": "Twitch Helix API"
     }
   },
@@ -56,13 +56,13 @@
     "kevone2107": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-06T01:49:16.993Z",
+      "checkedAt": "2026-11-06T09:02:15.059Z",
       "source": "https://twitchtracker.com/api/channels/summary/kevone2107"
     },
     "sgt_buddie": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-06T01:49:16.993Z",
+      "checkedAt": "2026-11-06T09:02:15.059Z",
       "source": "https://twitchtracker.com/api/channels/summary/sgt_buddie"
     }
   }

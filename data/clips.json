@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T00:13:47.125Z",
+  "updatedAt": "2026-11-06T09:02:15.059Z",
   "clips": [
     {
       "id": "IntelligentSparklyRingItsBoshyTime-cKxKcQX5QqWycrTJ",
@@ -13,6 +13,21 @@
       "created_at": "2026-11-01T18:58:16Z",
       "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/69bef955-6686-475a-a15a-58e2e5f5e8bc/landscape/thumb/thumb-0000000000-480x272.jpg",
       "duration": 24.5,
+      "language": "de",
+      "streamer": "Sgt_Buddie"
+    },
+    {
+      "id": "BitterRenownedWalletDuDudu-wD9FOgcWCnlO-3Vn",
+      "url": "https://www.twitch.tv/sgt_buddie/clip/BitterRenownedWalletDuDudu-wD9FOgcWCnlO-3Vn",
+      "embed_url": "https://clips.twitch.tv/embed?clip=BitterRenownedWalletDuDudu-wD9FOgcWCnlO-3Vn",
+      "title": "Erst mal ne Schelle",
+      "creator_name": "Fabsinger386",
+      "broadcaster_name": "Sgt_Buddie",
+      "game_name": "",
+      "view_count": 9,
+      "created_at": "2026-11-01T17:41:56Z",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/deade8fa-dd2f-41f9-bc1d-3ce81bc61386/landscape/thumb/thumb-0000000000-480x272.jpg",
+      "duration": 17,
       "language": "de",
       "streamer": "Sgt_Buddie"
     },

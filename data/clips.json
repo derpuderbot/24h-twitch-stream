@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06T09:02:15.059Z",
+  "updatedAt": "2026-11-09T14:15:31.693Z",
   "clips": [
     {
       "id": "IntelligentSparklyRingItsBoshyTime-cKxKcQX5QqWycrTJ",
@@ -72,6 +72,21 @@
       "view_count": 9,
       "created_at": "2026-10-31T12:48:23Z",
       "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/03829d19-546b-42a8-87d2-d3c37947ef51/landscape/thumb/thumb-0000000000-480x272.jpg",
+      "duration": 30,
+      "language": "de",
+      "streamer": "Sgt_Buddie"
+    },
+    {
+      "id": "DeliciousArborealBottlePermaSmug-ys6ZOxVTK15m2EZG",
+      "url": "https://www.twitch.tv/sgt_buddie/clip/DeliciousArborealBottlePermaSmug-ys6ZOxVTK15m2EZG",
+      "embed_url": "https://clips.twitch.tv/embed?clip=DeliciousArborealBottlePermaSmug-ys6ZOxVTK15m2EZG",
+      "title": "bjhbv",
+      "creator_name": "der_puder_baer",
+      "broadcaster_name": "Sgt_Buddie",
+      "game_name": "",
+      "view_count": 9,
+      "created_at": "2026-10-31T10:44:22Z",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/bc6e55b7-ff45-458b-ba2c-fbe79b528d14/landscape/thumb/thumb-0000000000-480x272.jpg",
       "duration": 30,
       "language": "de",
       "streamer": "Sgt_Buddie"

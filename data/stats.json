@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-14T20:02:04.146Z",
+  "updatedAt": "2026-11-14T23:55:51.160Z",
   "snapshotRetrievedOn": "2026-11-04",
   "source": "Twitch Helix API (GitHub Actions)",
   "channels": {
@@ -8,9 +8,9 @@
       "displayName": "kevone2107",
       "userId": "731403981",
       "isLive": true,
-      "title": "Late Night und gemütlich machen! (Alisthor Staver) [kw-com.de]  !dc 🔵🟡",
+      "title": "Late Night und gemütlich machen! (Alisthor Staver/Sigurd Lindström) [kw-com.de]  !dc 🔵🟡",
       "game": "Grand Theft Auto V",
-      "viewers": 5,
+      "viewers": 15,
       "followers": 727,
       "followersSource": "Kein kanalbezogener User-Token hinterlegt",
       "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/b927665e-ec27-4a54-85b1-c4d034972056-profile_image-300x300.png",
@@ -24,7 +24,7 @@
       "followerChange30d": 328,
       "rank30d": "#238 (deutsche GTA-V-Kanäle)",
       "firstSeen": "2025-10-01",
-      "updatedAt": "2026-11-14T20:02:04.146Z",
+      "updatedAt": "2026-11-14T23:55:51.160Z",
       "source": "Twitch Helix API"
     },
     "sgt_buddie": {
@@ -48,7 +48,7 @@
       "followerChange30d": null,
       "rank30d": "N/A",
       "firstSeen": null,
-      "updatedAt": "2026-11-14T20:02:04.146Z",
+      "updatedAt": "2026-11-14T23:55:51.160Z",
       "source": "Twitch Helix API"
     }
   },
@@ -56,13 +56,13 @@
     "kevone2107": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-14T20:02:04.146Z",
+      "checkedAt": "2026-11-14T23:55:51.160Z",
       "source": "https://twitchtracker.com/api/channels/summary/kevone2107"
     },
     "sgt_buddie": {
       "status": "HTTP 403",
       "data": null,
-      "checkedAt": "2026-11-14T20:02:04.146Z",
+      "checkedAt": "2026-11-14T23:55:51.160Z",
       "source": "https://twitchtracker.com/api/channels/summary/sgt_buddie"
     }
   }

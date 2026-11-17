@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-15T19:20:10.859Z",
+  "updatedAt": "2026-11-17T21:21:59.209Z",
   "clips": [
     {
       "id": "SquareDiligentIcecreamPlanking-RHE2LyXOSnLA14XJ",
@@ -13,6 +13,21 @@
       "created_at": "2026-11-11T21:46:18Z",
       "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/de38dcfd-b128-4e13-adc3-107cbb9ffcec/landscape/thumb/thumb-0000000000-480x272.jpg",
       "duration": 49.4,
+      "language": "de",
+      "streamer": "Sgt_Buddie"
+    },
+    {
+      "id": "FlaccidFairFerretNerfRedBlaster-otFTlHpBT82vfoqa",
+      "url": "https://www.twitch.tv/sgt_buddie/clip/FlaccidFairFerretNerfRedBlaster-otFTlHpBT82vfoqa",
+      "embed_url": "https://clips.twitch.tv/embed?clip=FlaccidFairFerretNerfRedBlaster-otFTlHpBT82vfoqa",
+      "title": "Joris über seine Frau :D",
+      "creator_name": "der_puder_baer",
+      "broadcaster_name": "Sgt_Buddie",
+      "game_name": "",
+      "view_count": 10,
+      "created_at": "2026-11-11T18:09:34Z",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/b46f9e01-983e-450e-9179-bb9542fff81c/landscape/thumb/thumb-0000000000-480x272.jpg",
+      "duration": 60,
       "language": "de",
       "streamer": "Sgt_Buddie"
     },
